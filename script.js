@@ -56,26 +56,3 @@ function getResponse(input) {
     const response = responses[input];
     return response ? response : "I'm sorry, I don't understand that. Can you ask something else?";
 }
-
-// Function to display messages in the chat log
-function displayMessage(message, className) {
-    const chatLog = document.getElementById('chat-log');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = className;
-    messageDiv.innerText = message;
-    chatLog.appendChild(messageDiv);
-    chatLog.scrollTop = chatLog.scrollHeight; // Scroll to the bottom
-}
-
-// Load the CSV file when the page is loaded
-window.onload = loadCSV;
-
-// Add event listener for the send button
-document.getElementById('send-button').addEventListener('click', sendMessage);
-
-// Add event listener for pressing Enter
-document.getElementById('user-input').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
-});
